@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Hero } from '../hero';
 
 @Component({
@@ -8,4 +8,8 @@ import { Hero } from '../hero';
 })
 export class HeroDetailComponent {
   @Input() hero?: Hero;
+  @Output() heroChange: EventEmitter<boolean> = new EventEmitter;
+  heroModify(data:Hero){
+    this.heroChange.emit(true)
+  }
 }
